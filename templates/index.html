@@ -1,35 +1,46 @@
 <!DOCTYPE html>
-<html >
+<html>
 <!--From https://codepen.io/frytyler/pen/EGdtg-->
+
 <head>
-  <meta charset="UTF-8">
-  <title>ML API</title>
-  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
-<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
-<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
-<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
-  
+    <meta charset="UTF-8">
+    <title>bet-prediction</title>
+    <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+
 </head>
 
 <body>
- <div class="login">
-	<h1>Predict Salary Analysis</h1>
+    <div class="login">
+        <h1>Bet Prediction</h1>
 
-     <!-- Main Input For Receiving Query to our ML -->
-    <form action="{{ url_for('predict')}}"method="post">
-    	<input type="text" name="experience" placeholder="Experience" required="required" />
-        <input type="text" name="test_score" placeholder="Test Score" required="required" />
-		<input type="text" name="interview_score" placeholder="Interview Score" required="required" />
+        <!-- Main Input For Receiving Query to our ML -->
+        <form action="{{ url_for('predict')}}" method="post">
+            <input type="text" name="stake" placeholder="stake" required="required" /> <br><br>
+            <input type="text" name="betRate" placeholder="betRate" required="required" /> <br><br>
+            <input type="text" name="marketId" placeholder="marketId" required="required" /><br><br>
+            <input type="text" name="averagePriceMatched" placeholder="averagePriceMatched"
+                required="required" /><br><br>
+            <input type="text" name="type" placeholder="type" required="required" /><br><br>
+            <input type="text" name="eventType" placeholder="eventType" required="required" /><br><br>
+            <input type="text" name="marketName" placeholder="marketName" required="required" /><br><br>
+            <input type="text" name="event" placeholder="event" required="required" /><br><br>
+            <input type="text" name="placedDate" placeholder="placedDate" required="required" /><br><br>
 
-        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
-    </form>
 
-   <br>
-   <br>
-   {{ prediction_text }}
 
- </div>
+            <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+        </form>
+
+        <br>
+        <br>
+        {{ prediction_text }}
+
+    </div>
 
 
 </body>
+
 </html>
