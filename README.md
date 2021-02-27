@@ -1,1 +1,1 @@
-# W-deploy
+# bet-prediction-deploy
