@@ -1,7 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-## Import Liberaries and Modules
 import numpy as np
 from flask import Flask, request, jsonify, render_template, redirect
 import pickle
@@ -13,22 +9,20 @@ import pandas as pd
 from datetime import datetime
 
 
-## Disable Tesorflow / Keras Warning
 # import warnings
 # warnings.filterwarnings("ignore")
 # import tensorflow as tf
 
-# # load and evaluate a saved model keras
+# # load and evaluate a saved model
 # from numpy import loadtxt
 # from keras.models import load_model
 
-## Convert string into Datetime format
+
 def convertdate(dstring):
     return datetime.strptime(dstring, '%Y-%m-%dT%H:%M:%S.%fZ')
 
 
 app = Flask(__name__)
-
 # # load model
 # model = load_model('ann_model')
 # # summarize model.
@@ -50,18 +44,19 @@ def predict():
     features = [x for x in request.form.values()]
     print(features)
 
-    # Boxcox transformation lambda values
+    # Boxcox transformation
     fitted_lambda_stake = -0.0466345079709477
     fitted_lambda_betRate = -1.6678009857211833
     fitted_lambda_averagePriceMatched = -1.668065197571059
 
-    ## List of numerical and categorical feature
+    final_features = []
+
+
     numerical_fet = ['stake_boxcox','betRate_boxcox','marketId', 'averagePriceMatched_boxcox']
+
     categorical_fet = ['type', 'eventType',  'marketName', 'event', 
                    'hour', 'week_of_the_year', 'weekday']
-
-
-    ## Numerical Features Processing
+    ## Numerical Features
     stake_boxcox = boxcox(float(features[0]), fitted_lambda_stake)+1
     betRate_boxcox = boxcox(float(features[1]), fitted_lambda_betRate)+1
     marketId = float(features[2])
@@ -79,7 +74,7 @@ def predict():
 
     print(scaler_df)
 
-    ## Categorical Features Processing
+    ## Categorical Features
     type_name = features[4]
     eventType = features[5]
     marketName = features[6]
@@ -111,7 +106,7 @@ def predict():
     if prediction==0:
         return render_template('index.html', prediction_text='Bet is {} (WINNER_DECLARED)'.format(prediction[0]))
     else:
-        return render_template('index.html', prediction_text='Bet is {} (INALID_BET)'.format(prediction[0]))
+        return render_template('index.html', prediction_text='Bets is {} (INALID_BET)'.format(prediction[0]))
 
     # output = round(prediction[0], 2)
 

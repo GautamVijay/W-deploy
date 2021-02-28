@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+
+<head>
+    <meta charset="UTF-8" />
+    <title>bet-prediction</title>
+    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Arimo" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Hind:300" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet" type="text/css" />
+    <!-- Flask read css from static folder -->
+    <link rel="stylesheet" href="../static/min.css">
+    <script src="../static/min.js"></script>
+
+</head>
+
+
+<body>
+
+    <div class="login">
+        <h1>Bet Prediction</h1>
+
+        <p>Fill all input as in order listed and in the format of data provided.</br>
+            Click on the Predict button to get the prediction.</p>
+
+        <!-- Main Input For Receiving Query to our ML -->
+        <form action="{{ url_for('predict')}}" method="post">
+            <label>stake
+                <input type="text" name="stake" placeholder="stake" required="required" ></input>
+            </label>
+            <!-- <input type="text" name="stake" placeholder="stake" required="required" /> -->
+            <br /><br />
+            <input type="text" name="betRate" placeholder="betRate" required="required" />
+            <br /><br />
+            <input type="text" name="marketId" placeholder="marketId" required="required" /><br /><br />
+            <input type="text" name="averagePriceMatched" placeholder="averagePriceMatched"
+                required="required" /><br /><br />
+
+                <label>type:
+                    <input list="type" name="type" /></label>
+                    <datalist id="type">
+                      <option value="LAY">
+                      <option value="BACK">
+                    </datalist><br /><br />
+            <!-- <input type="text" name="type" placeholder="type" required="required" /><br /><br /> -->
+            <input type="text" name="eventType" placeholder="eventType" required="required" /><br /><br />
+            <input type="text" name="marketName" placeholder="marketName" required="required" /><br /><br />
+            <input type="text" name="event" placeholder="event" required="required" /><br /><br />
+            <input type="text" name="placedDate" placeholder="placedDate" required="required" /><br /><br />
+
+            <label>Choose a browser from this list:
+                <input list="browsers" name="myBrowser" /></label>
+                <datalist id="browsers">
+                  <option value="Chrome">
+                  <option value="Firefox">
+                  <option value="Internet Explorer">
+                  <option value="Opera">
+                  <option value="Safari">
+                  <option value="Microsoft Edge">
+                </datalist> <br /><br />
+
+
+                <label>Choose a browser from this list:
+                    <input list="browsers1" name="myBrowser1" /></label>
+                    <datalist id="browsers1">
+                      <option value="Chrome">
+                      <option value="Firefox">
+                      <option value="Internet Explorer">
+                      <option value="Opera">
+                      <option value="Safari">
+                      <option value="Microsoft Edge">
+                    </datalist><br /><br />
+    
+
+            <button type="submit" class="btn btn-primary btn-block btn-large">
+                Predict
+            </button>
+        </form>
+
+
+
+        <br />
+        <br />
+        {{ prediction_text }}
+    </div>
+</body>
+
+</html>
