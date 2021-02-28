@@ -1,46 +1,107 @@
 <!DOCTYPE html>
 <html>
-<!--From https://codepen.io/frytyler/pen/EGdtg-->
+  <!--From https://codepen.io/frytyler/pen/EGdtg-->
 
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>bet-prediction</title>
-    <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+    <link
+      href="https://fonts.googleapis.com/css?family=Pacifico"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Arimo"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Hind:300"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300"
+      rel="stylesheet"
+      type="text/css"
+    />
+  </head>
 
-</head>
-
-<body>
+  <body>
     <div class="login">
-        <h1>Bet Prediction</h1>
+      <h1>Bet Prediction</h1>
 
-        <!-- Main Input For Receiving Query to our ML -->
-        <form action="{{ url_for('predict')}}" method="post">
-            <input type="text" name="stake" placeholder="stake" required="required" /> <br><br>
-            <input type="text" name="betRate" placeholder="betRate" required="required" /> <br><br>
-            <input type="text" name="marketId" placeholder="marketId" required="required" /><br><br>
-            <input type="text" name="averagePriceMatched" placeholder="averagePriceMatched"
-                required="required" /><br><br>
-            <input type="text" name="type" placeholder="type" required="required" /><br><br>
-            <input type="text" name="eventType" placeholder="eventType" required="required" /><br><br>
-            <input type="text" name="marketName" placeholder="marketName" required="required" /><br><br>
-            <input type="text" name="event" placeholder="event" required="required" /><br><br>
-            <input type="text" name="placedDate" placeholder="placedDate" required="required" /><br><br>
+      <!-- Main Input For Receiving Query to our ML -->
+      <form action="{{ url_for('predict')}}" method="post">
+        <input
+          type="text"
+          name="stake"
+          placeholder="stake"
+          required="required"
+        />
+        <br /><br />
+        <input
+          type="text"
+          name="betRate"
+          placeholder="betRate"
+          required="required"
+        />
+        <br /><br />
+        <input
+          type="text"
+          name="marketId"
+          placeholder="marketId"
+          required="required"
+        /><br /><br />
+        <input
+          type="text"
+          name="averagePriceMatched"
+          placeholder="averagePriceMatched"
+          required="required"
+        /><br /><br />
+        <input
+          type="text"
+          name="type"
+          placeholder="type"
+          required="required"
+        /><br /><br />
+        <input
+          type="text"
+          name="eventType"
+          placeholder="eventType"
+          required="required"
+        /><br /><br />
+        <input
+          type="text"
+          name="marketName"
+          placeholder="marketName"
+          required="required"
+        /><br /><br />
+        <input
+          type="text"
+          name="event"
+          placeholder="event"
+          required="required"
+        /><br /><br />
+        <input
+          type="text"
+          name="placedDate"
+          placeholder="placedDate"
+          required="required"
+        /><br /><br />
 
+        <textarea rows="4" cols="100" name="comment" form="usrform">
+                Enter text here...</textarea
+        >
 
+        <button type="submit" class="btn btn-primary btn-block btn-large">
+          Predict
+        </button>
+      </form>
 
-            <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
-        </form>
-
-        <br>
-        <br>
-        {{ prediction_text }}
-
+      <br />
+      <br />
+      {{ prediction_text }}
     </div>
-
-
-</body>
-
+  </body>
 </html>
