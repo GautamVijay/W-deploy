@@ -17,8 +17,15 @@ div {
     position: inherit;
     top: 20%;
     left: 20%;
-    margin-top: 50px;
+    margin-top: 20px;
     margin-left: 200px;
+}
+
+h4,
+p {
+    margin-top: 0;
+    margin-bottom: 0;
+    line-height: 1.5;
 }
 
 /* .button {
