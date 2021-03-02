@@ -111,7 +111,7 @@ def predict():
     if prediction==0:
         return render_template('index.html', prediction_text='Bet is {} (WINNER_DECLARED)'.format(prediction[0]))
     else:
-        return render_template('index.html', prediction_text='Bet is {} (INALID_BET)'.format(prediction[0]))
+        return render_template('index.html', prediction_text='Bet is {} (INVALID_BET)'.format(prediction[0]))
 
     # output = round(prediction[0], 2)
 
