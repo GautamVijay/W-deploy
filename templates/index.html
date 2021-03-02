@@ -20,7 +20,7 @@
 
 
 <body>
- 
+
     <!-- <nav class="navbar navbar-dark bg-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">
@@ -30,12 +30,18 @@
         </div>
     </nav> -->
 
-      
-    <div class="login" >
-        <h1>Wohlig Bet Prediction</h1>
 
-        <p>Please fill all input as in <b>order listed</b> and in the <b>format of data provided,</b>.</br>
-            <b>e.g.</b> </br>
+    <div class="login">
+        <h1>Wohlig Bet Prediction</h1>
+        <h4>Assignment Files Link : <a target="_blank"
+                href="https://drive.google.com/drive/folders/15f1S9lVKt9ryIane3T6Z79XzS2B4lZXG?usp=sharing">Wohlig Bet
+                Prediction Google Drive</a> </h4>
+        <h4>For Easy Testing Use This Link : <a target="_blank"
+                href="https://gautamvijay.github.io/extra/Wohlog-Bet-Prediction-Dataset-Table.htm">Bet Prediction
+                Data Table</a>
+        </h4>
+        <p>Please fill all input as in <b>order listed</b> and in the <b>format of data provided.</b></br>
+            <!-- <b>e.g.</b> </br>
             <b>stake :</b> 4500 &emsp; 
             <b>betRate :</b> 1.960 &emsp;
             <b>marketId :</b> 1.175 &emsp;
@@ -44,66 +50,67 @@
             <b>eventType :</b> Cricket &emsp;
             <b>marketName :</b> Match Odds  </br>
             <b>event :</b> Delhi Capitals v Royal Challengers Bangalore &emsp;
-            <b>placedDate :</b> 2020-11-02T14:16:57.494Z </br>
+            <b>placedDate :</b> 2020-11-02T14:16:57.494Z </br> -->
         </p>
 
         <!-- Main Input For Receiving Query to our ML -->
         <form action="{{ url_for('predict')}}" method="post">
 
             <input type="text" name="stake" placeholder="stake" required="required" />
-            <b>e.g.</b> 10000.0,    500.0,  50000.0,    100.0,   1000.0,    200.0,  20000.0,   5000.0,   2000.0,    150.0 
+            <b>e.g.</b> 10000.0, 500.0, 50000.0, 100.0, 1000.0, 200.0, 20000.0, 5000.0, 2000.0, 150.0
             <br /><br />
             <input type="text" name="betRate" placeholder="betRate" required="required" />
-            <b>e.g.</b> 1.07,   1.02,   1.08,   1.03,   1.05,    1.1,    1.2,   1.09,   1.06,   1.04
+            <b>e.g.</b> 1.07, 1.02, 1.08, 1.03, 1.05, 1.1, 1.2, 1.09, 1.06, 1.04
             <br /><br />
             <input type="text" name="marketId" placeholder="marketId" required="required" />
-            <b>e.g.</b> 1.177756356, 1.179430181, 1.178941233, 1.179569161, 1.178941114, 1.177756525, 1.179521139, 1.177756017
+            <b>e.g.</b> 1.177756356, 1.179430181, 1.178941233, 1.179569161, 1.178941114, 1.177756525, 1.179521139,
+            1.177756017
             <br /><br />
-            <input type="text" name="averagePriceMatched" placeholder="averagePriceMatched"
-                required="required" />
-                <b>e.g.</b>1.02, 1.07, 1.1, 1.08, 1.03, 1.05, 1.06, 1.04, 1.2, 1.23
-                <br /><br />
+            <input type="text" name="averagePriceMatched" placeholder="averagePriceMatched" required="required" />
+            <b>e.g.</b>1.02, 1.07, 1.1, 1.08, 1.03, 1.05, 1.06, 1.04, 1.2, 1.23
+            <br /><br />
 
-                <!-- <label> -->
-                    <input list="type" name="type" placeholder="type"/></label>
-                    <datalist id="type">
-                      <option value="LAY">
-                      <option value="BACK">
-                    </datalist> Select from Dropdown menu<br /><br />
+            <!-- <label> -->
+            <input list="type" name="type" placeholder="type" /></label>
+            <datalist id="type">
+                <option value="LAY">
+                <option value="BACK">
+            </datalist> Select from Dropdown menu<br /><br />
             <!-- <input type="text" name="type" placeholder="type" required="required" /><br /><br /> -->
 
             <!-- <label> -->
-                <input list="eventType" name="eventType" placeholder="eventType"/></label>
-                <datalist id="eventType">
-                  <option value="Cricket">
-                  <option value="Soccer">
-                  <option value="Tennis">
+            <input list="eventType" name="eventType" placeholder="eventType" /></label>
+            <datalist id="eventType">
+                <option value="Cricket">
+                <option value="Soccer">
+                <option value="Tennis">
 
-                </datalist>Select from Dropdown menu<br /><br />
+            </datalist>Select from Dropdown menu<br /><br />
 
             <!-- <input type="text" name="eventType" placeholder="eventType" required="required" /><br /><br /> -->
 
             <!-- <label> -->
-                <input list="marketName" name="marketName" placeholder="marketName"/></label>
-                <datalist id="marketName">
-                  <option value="Match Odds">
-                  <option value="Tied Match">
-                  <option value="Over/Under 0.5 Goals">
-                  <option value="Over/Under 1.5 Goals">
-                  <option value="Over/Under 2.5 Goals">
-                  <option value="Over/Under 3.5 Goals">
-                  <option value="Over/Under 4.5 Goals">
-                  <option value="Over/Under 5.5 Goals">
-                  <option value="Over/Under 6.5 Goals">
-                  <option value="Over/Under 7.5 Goals">
-                </datalist>Select from Dropdown menu<br /><br />
+            <input list="marketName" name="marketName" placeholder="marketName" /></label>
+            <datalist id="marketName">
+                <option value="Match Odds">
+                <option value="Tied Match">
+                <option value="Over/Under 0.5 Goals">
+                <option value="Over/Under 1.5 Goals">
+                <option value="Over/Under 2.5 Goals">
+                <option value="Over/Under 3.5 Goals">
+                <option value="Over/Under 4.5 Goals">
+                <option value="Over/Under 5.5 Goals">
+                <option value="Over/Under 6.5 Goals">
+                <option value="Over/Under 7.5 Goals">
+            </datalist>Select from Dropdown menu<br /><br />
 
             <!-- <input type="text" name="marketName" placeholder="marketName" required="required" /><br /><br /> -->
             <input type="text" name="event" placeholder="event" required="required" />
-            <b>e.g.</b> New Zealand v Australia (1st T20), Lions v Warriors, Lahore Qalandars v Peshawar Zalmi, Guyana v Trinidad & Tobago
+            <b>e.g.</b> New Zealand v Australia (1st T20), Lions v Warriors, Lahore Qalandars v Peshawar Zalmi, Guyana v
+            Trinidad & Tobago
             <br /><br />
             <input type="text" name="placedDate" placeholder="placedDate" required="required" />
-            <b>e.g.</b> 2021-02-22T09:43:04.686Z, 2021-02-18T18:20:17.016Z, 2021-02-19T21:55:36.789Z 
+            <b>e.g.</b> 2021-02-22T09:43:04.686Z, 2021-02-18T18:20:17.016Z, 2021-02-19T21:55:36.789Z
             <br /><br />
 
             <!-- <label>Choose a browser from this list:
@@ -116,12 +123,12 @@
                   <option value="Safari">
                   <option value="Microsoft Edge">
                 </datalist> <br /><br /> -->
-    
+
 
             <!-- <button type="submit" class="btn btn-primary btn-block btn-large"> -->
             <button type="submit" class="btn btn-primary">
 
-                 Predict
+                Predict
             </button>
         </form>
 
